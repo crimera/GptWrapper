@@ -38,12 +38,6 @@ jobs:
           keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
           keyPassword: ${{ secrets.KEYSTORE_PASSWORD }}
 
-      - name: Make Artifact
-        uses: actions/upload-artifact@v2
-        with:
-            name: app-release-signed
-            path: ${{steps.sign_app.outputs.signedFile}}
-
       - name: Build Changelog
         id: changelog
         uses: ardalanamini/auto-changelog@v3
