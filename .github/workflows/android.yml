@@ -41,4 +41,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Signed app
-          path: ${{steps.sign_app.outputs.signedFile}}
+          path: $ANDROID_SIGNED_FILE
