@@ -73,6 +73,7 @@ class MainActivity : ComponentActivity() {
                         override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                             visibility.value = true
                             loadScript("add_copy.js")
+                            loadScript("swipe_left.js")
                             println("Start")
                         }
 
