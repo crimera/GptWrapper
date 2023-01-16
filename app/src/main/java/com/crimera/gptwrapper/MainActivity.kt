@@ -73,6 +73,7 @@ class MainActivity : ComponentActivity() {
                         override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                             visibility.value = true
                             loadScript("add_copy.js")
+                            // https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
                             loadScript("swipe_left.js")
                             println("Start")
                         }
