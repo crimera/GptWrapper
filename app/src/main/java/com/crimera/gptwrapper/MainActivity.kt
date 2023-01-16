@@ -39,6 +39,9 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = Color.parseColor("#343541")
     }
 
     override fun onBackPressed() {
