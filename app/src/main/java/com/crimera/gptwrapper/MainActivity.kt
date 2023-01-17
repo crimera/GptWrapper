@@ -5,6 +5,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.view.WindowManager
 import android.webkit.CookieManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -21,7 +22,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.viewinterop.AndroidView
 import com.crimera.gptwrapper.ui.theme.GptWrapperTheme
 
@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
         }
         
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = Color.parseColor("#343541")
+        window.statusBarColor = android.graphics.Color.parseColor("#343541")
     }
 
     override fun onBackPressed() {
@@ -101,7 +101,7 @@ class MainActivity : ComponentActivity() {
             })
 
             if (visibility.value) {
-                Text(text = "Loading...", modifier = Modifier.align(Alignment.Center), color = Color.Black)
+                Text(text = "Loading...", modifier = Modifier.align(Alignment.Center))
             }
         }
     }
