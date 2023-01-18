@@ -26,6 +26,7 @@ import com.crimera.gptwrapper.ui.theme.GptWrapperTheme
 
 class MainActivity : ComponentActivity() {
     private var webview: WebView? = null
+    private val userAgent = "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5414.86 Mobile Safari/537.36"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +63,7 @@ class MainActivity : ComponentActivity() {
                         LinearLayout.LayoutParams.MATCH_PARENT
                     )
 
+                    settings.userAgentString = userAgent
                     settings.javaScriptEnabled = true
                     settings.domStorageEnabled = true
                     settings.builtInZoomControls = false
