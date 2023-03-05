@@ -5,9 +5,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.webkit.CookieManager
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -73,9 +71,7 @@ class MainActivity : ComponentActivity() {
                     webViewClient = object : WebViewClient() {
                         override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                             visibility.value = true
-                            loadScript("add_copy.js")
-                            // https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
-                            loadScript("swipe_left.js")
+                            loadScript("fix_copy.js")
                             println("Start")
                         }
 
@@ -86,9 +82,10 @@ class MainActivity : ComponentActivity() {
                         }
 
                         private fun WebView.loadScript(filename: String) {
-                            evaluateJavascript(assets.open(filename).bufferedReader().use { it.readText() }, null)
+                            evaluateJavascript(
+                                assets.open(filename).bufferedReader().use { it.readText() }, null
+                            )
                         }
-
                     }
 
                     loadUrl(url)
